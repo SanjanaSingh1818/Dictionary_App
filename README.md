@@ -1,6 +1,6 @@
 # Dictionary App
 
-![Dictionary App Logo](/path/to/your/logo.png)
+![Dictionary App Logo]("C:\Users\sanjana singh\Documents\dictionary-app\dictionary-app\public\assets\images.webp")
 
 ## Description
 
