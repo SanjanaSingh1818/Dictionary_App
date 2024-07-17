@@ -56,4 +56,3 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 2. Customize the "Description," "Features," and "Technologies Used" sections according to your app's specific details.
 3. Update the GitHub repository URLs and any other placeholders (`your-username`, `dictionary-app`) with your actual GitHub username and repository name.
 
-This Markdown file (`README.md`) will render nicely on your GitHub repository, providing an overview of your dictionary app, installation instructions, usage guidelines, and more. Adjust the content and styling as needed to best represent your app!
