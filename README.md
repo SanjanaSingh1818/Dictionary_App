@@ -39,11 +39,11 @@ A modern dictionary web application built with React and Material-UI, allowing u
 
 ## Usage
 
--Enter a word in the search bar to view its definitions.
--Click on the bookmark icon to save words for quick access.
--Navigate to the bookmarks page to see your saved words.
--Contributing
--Contributions are welcome! Feel free to open issues and pull requests.
+- Enter a word in the search bar to view its definitions.
+- Click on the bookmark icon to save words for quick access.
+- Navigate to the bookmarks page to see your saved words.
+- Contributing
+- Contributions are welcome! Feel free to open issues and pull requests.
 
 ## License
 
