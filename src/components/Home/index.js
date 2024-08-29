@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box, Typography, FilledInput, IconButton, InputAdornment, useTheme } from '@material-ui/core';
+import { Box, Typography, FilledInput, IconButton, InputAdornment } from '@material-ui/core';
 import { Search as SearchIcon, Bookmark as BookmarkIcon } from '@material-ui/icons';
 import { useNavigate, Link } from 'react-router-dom';
 import { styled } from '@mui/system';
@@ -18,10 +18,17 @@ const BackgroundBox = styled(Box)({
 
 const StyledInput = styled(FilledInput)({
     backgroundColor: '#fff',
-    borderRadius: '8px',
-    boxShadow: '0px 10px 25px rgba(0, 0, 0, 0.1)',
+    borderRadius: '30px', // Smooth, rounded corners
+    boxShadow: '0px 10px 25px rgba(0, 0, 0, 0.15)', // Subtle shadow for depth
     '& .MuiFilledInput-input': {
-        padding: '15px',
+        padding: '15px 20px', // Add more padding for a more spacious look
+    },
+    '&:hover': {
+        boxShadow: '0px 12px 28px rgba(0, 0, 0, 0.2)', // Slightly increase shadow on hover
+    },
+    '&.Mui-focused': {
+        boxShadow: '0px 15px 30px rgba(0, 0, 0, 0.25)', // Increase shadow on focus
+        borderColor: '#FF8E53', // Change border color on focus
     },
 });
 
@@ -39,7 +46,6 @@ const GradientButton = styled(IconButton)({
 
 const Home = () => {
     const [word, setWord] = useState('');
-    const theme = useTheme();
     const navigate = useNavigate();
 
     const handleSubmit = (event) => {
@@ -53,25 +59,28 @@ const Home = () => {
         <BackgroundBox>
             <img src="/assets/images.webp" alt="Book" style={{ maxWidth: '200px', marginBottom: '30px' }} />
             <Typography
-                variant="h4"
-                sx={{
-                    fontWeight: 'bold',
-                    mb: 2,
-                    color: '#fff', 
-                    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
-                }}
-            >
-                Dictionary
-            </Typography>
-            <Typography
-                sx={{
-                    color: '#fff', 
-                    mb: 4,
-                    textShadow: '1px 1px 2px rgba(0, 0, 0, 0.5)',
-                }}
-            >
-                Find meanings and save for quick reference
-            </Typography>
+    variant="h4"
+    style={{
+        fontWeight: 'bold',
+        marginBottom: '16px',
+        color: '#fff', // White color
+        textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+    }}
+>
+    Dictionary
+</Typography>
+
+<Typography
+    style={{
+        color: '#fff', // This sets the text color to white
+        marginBottom: '16px',
+        textShadow: '1px 1px 2px rgba(0, 0, 0, 0.5)',
+    }}
+>
+    Find meanings and save for quick reference
+</Typography>
+
+
             <Box sx={{ width: '100%', maxWidth: '400px', mb: 6 }}>
                 <form onSubmit={handleSubmit}>
                     <StyledInput
