@@ -16,12 +16,12 @@ const Definition = ({ bookmarks = {}, addBookmark, removeBookmark }) => {
 
     const isBookmarked = bookmarks && Object.keys(bookmarks).includes(word);
 
-    const updateState = data => {
+    const updateState = (data) => {
         setDefinitions(data);
         const phonetics = data[0]?.phonetics || [];
         if (phonetics.length) {
-            const url = phonetics[0].audio.replace('//ssl', 'https://ssl');
-            setAudio(new Audio(url));
+            const audioUrl = phonetics.find(p => p.audio)?.audio;
+            if (audioUrl) setAudio(new Audio(audioUrl));
         }
     };
 
@@ -106,9 +106,9 @@ const Definition = ({ bookmarks = {}, addBookmark, removeBookmark }) => {
             {definitions.map((def, idx) => (
                 <Fragment key={idx}>
                     <Divider sx={{ display: idx === 0 ? 'none' : 'block', my: 3 }} />
-                    {def.meanings.map(meaning => (
+                    {def.meanings.map((meaning, meaningIdx) => (
                         <Box
-                            key={Math.random()}
+                            key={meaningIdx}
                             sx={{
                                 boxShadow: '0px 10px 25px rgba(0, 0, 0, 0.05)',
                                 backgroundColor: '#fff',
@@ -120,9 +120,9 @@ const Definition = ({ bookmarks = {}, addBookmark, removeBookmark }) => {
                             <Typography sx={{ textTransform: 'capitalize' }} color="GrayText" variant="subtitle1">
                                 {meaning.partOfSpeech}
                             </Typography>
-                            {meaning.definitions.map((definition, idx) => (
-                                <Typography sx={{ my: 1 }} variant="body2" color="GrayText" key={definition.definition}>
-                                    {meaning.definitions.length > 1 && `${idx + 1}. `} {definition.definition}
+                            {meaning.definitions.map((definition, defIdx) => (
+                                <Typography sx={{ my: 1 }} variant="body2" color="GrayText" key={defIdx}>
+                                    {meaning.definitions.length > 1 && `${defIdx + 1}. `} {definition.definition}
                                 </Typography>
                             ))}
                         </Box>
